@@ -31,4 +31,5 @@ h1 {
 #btn-start {
   margin: 10px;
   padding: 10px;
+  cursor: pointer;
 }
