@@ -33,3 +33,10 @@ h1 {
   padding: 10px;
   cursor: pointer;
 }
+
+button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  padding: 10px;
+}
