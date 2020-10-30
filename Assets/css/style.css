@@ -1,0 +1,16 @@
+main {
+  width: 100%;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+#welcome, #timer {
+    width: 100%;
+    text-align: center;
+}
