@@ -10,7 +10,19 @@ header {
   margin-top: 50px;
 }
 
-#welcome, #timer {
-    width: 100%;
-    text-align: center;
+h1 {
+  font-size: 2em;
+}
+
+#welcome,
+#timer {
+  width: 100%;
+  text-align: center;
+}
+
+#count {
+  background-color: red;
+  padding: 5px;
+  border-radius: 3px;
+  color: white;
 }
