@@ -29,6 +29,7 @@ let i = 0;
 // Need to create all of my functions and logic
 function startTime () {
     startButtonEl.setAttribute("style", "display:none;");
+    startQuestions();
     let timerInterval = setInterval(function(){
         count--;
         countEl.textContent = count;
@@ -40,10 +41,13 @@ function startTime () {
     }, 1000);
 }
 
+
+
 function startQuestions (){
     
+  
     questionEl = document.createElement("h1");
-    questionEl.textContent = questions[1].question;
+    questionEl.textContent = questions[0].question;
     containerEl.appendChild(questionEl);
     containerEl.setAttribute("style","display:flex;flex-direction:column;text-align:center;width:30%;margin:0px auto;justify-content:space-between;");
 
@@ -52,19 +56,23 @@ function startQuestions (){
     containerEl.appendChild(choiceEl1);
 
     choiceEl2 = document.createElement("button");
-    choiceEl2.textContent = questions[1].choices[0];
+    choiceEl2.textContent = questions[1].choices[1];
     containerEl.appendChild(choiceEl2);
 
     choiceEl3 = document.createElement("button");
-    choiceEl3.textContent = questions[1].choices[0];
+    choiceEl3.textContent = questions[1].choices[2];
     containerEl.appendChild(choiceEl3);
 
     choiceEl4 = document.createElement("button");
-    choiceEl4.textContent = questions[1].choices[0];
+    choiceEl4.textContent = questions[1].choices[3];
     containerEl.appendChild(choiceEl4);
-
+    
+    containerEl.addEventListener("click", nextQuestion)
 }
 
-// Need to execute my functions
+function nextQuestion
 
-startQuestions();
+
+// Need to execute my functions
+// startQuestions();
+startButtonEl.addEventListener("click", startTime)
