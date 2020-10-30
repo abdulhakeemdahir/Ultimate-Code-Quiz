@@ -15,7 +15,8 @@ h1 {
 }
 
 #welcome,
-#timer {
+#timer,
+#start {
   width: 100%;
   text-align: center;
 }
@@ -25,4 +26,9 @@ h1 {
   padding: 5px;
   border-radius: 3px;
   color: white;
+}
+
+#btn-start {
+  margin: 10px;
+  padding: 10px;
 }
