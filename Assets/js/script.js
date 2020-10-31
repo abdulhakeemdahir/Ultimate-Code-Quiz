@@ -11,18 +11,58 @@ let questions = [
     answer: 1,
   },
   {
-    question: "Question number 2",
-    choices: ["Choice 5", "Choice 6", "Choice 7", "Choice 8"],
+    question: "How do you add a new Element via Javascript?",
+    choices: ["createDiv", "createClass", "createElement", "createTag"],
     answer: 1,
   },
   {
-    question: "Question number 3",
-    choices: ["Choice 9", "Choice 10", "Choice 11", "Choice 12"],
+    question: "What does HTML mean?",
+    choices: [
+      "Hyper Text Mockup Language",
+      "Hyper Text Markup Language",
+      "Highly Ternary Mockup Language",
+      "Howdy There Markup Language",
+    ],
     answer: 1,
   },
   {
-    question: "Question number 4",
-    choices: ["Choice 13", "Choice 14", "Choice 15", "Choice 16"],
+    question: "What is a Boolean?",
+    choices: ["A Number", "A String", "A True or False", "A Not A Number"],
+    answer: 1,
+  },
+  {
+    question: "What is jQuery?",
+    choices: [
+      "A programming language",
+      "A JS framework",
+      "A CSS Library",
+      "An HTML framework",
+    ],
+    answer: 1,
+  },
+  {
+    question: "How do you use Bootstrap?",
+    choices: [
+      "As HTML Tags",
+      "As JS replacement",
+      "As Classes",
+      "You don't use Bootstrap!",
+    ],
+    answer: 1,
+  },
+  {
+    question: "What is Global Scope?",
+    choices: [
+      "Where your variables can be accessed anywhere",
+      "Where your variables cannot be accessed anywhere",
+      "Something to see something far with",
+      "I have no clue!",
+    ],
+    answer: 1,
+  },
+  {
+    question: "What is VS Code",
+    choices: ["A website", "An IDE", "A Game", "A Programming Langauge"],
     answer: 1,
   },
 ];
