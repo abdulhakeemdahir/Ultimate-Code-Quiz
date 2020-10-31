@@ -34,18 +34,18 @@ h1 {
   cursor: pointer;
 }
 
-#container{
-    display: flex;
+#container {
+  display: flex;
 }
 
 button {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin:5px auto;
   cursor: pointer;
   padding: 10px;
   background-color: #fafafa;
   border: solid 1px #ddd;
   border-radius: 5px;
+  width: 50%;
 }
 
 button:hover {

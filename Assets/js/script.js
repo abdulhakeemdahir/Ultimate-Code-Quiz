@@ -51,7 +51,7 @@ function startQuestions() {
   containerEl.appendChild(questionEl);
   containerEl.setAttribute(
     "style",
-    "display:flex;flex-direction:column;text-align:center;width:50%;margin:0px auto;justify-content:space-between;"
+    "display:flex;flex-direction:column;text-align:center;margin:0px auto;justify-content:space-between;"
   );
 
   choiceEl1 = document.createElement("button");
