@@ -70,7 +70,7 @@ var containerEl = document.querySelector("#container");
 var startButtonEl = document.querySelector("#btn-start");
 var countEl = document.querySelector("#count");
 var score = 0;
-var count = 75;
+var count = 5;
 // var timer = 1000;
 var i = 0;
 
@@ -135,6 +135,11 @@ function startTime() {
     countEl.textContent = count;
     if (count === 0) {
       clearInterval(timerInterval);
+      containerEl.setAttribute("style", "display:none;");
+      scoreContainerEl = document.querySelector("#scorecontainer");
+      scoreEl = document.createElement("h1");
+      scoreEl.textContent = "Here is your score " + score;
+      scoreContainerEl.appendChild(scoreEl);
     }
   }, 1000);
 }
