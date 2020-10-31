@@ -137,6 +137,10 @@ function startTime() {
       clearInterval(timerInterval);
       containerEl.setAttribute("style", "display:none;");
       scoreContainerEl = document.querySelector("#scorecontainer");
+      scoreContainerEl.setAttribute(
+        "style",
+        "display:flex;flex-direction:column;text-align:center;margin:0px auto;justify-content:space-between;"
+      );
       scoreEl = document.createElement("h1");
       scoreEl.textContent = "Here is your score " + score;
       scoreContainerEl.appendChild(scoreEl);
