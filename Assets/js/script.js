@@ -21,17 +21,17 @@ let questions = [
     answer: 1,
   },
 ];
-let containerEl = document.querySelector("#container");
-let startButtonEl = document.querySelector("#btn-start");
-let countEl = document.querySelector("#count");
-let count = 75;
-let i = 0;
+var containerEl = document.querySelector("#container");
+var startButtonEl = document.querySelector("#btn-start");
+var countEl = document.querySelector("#count");
+var count = 75;
+var i = 0;
 
 // Need to create all of my functions and logic
 function startTime() {
   startButtonEl.setAttribute("style", "display:none;");
   startQuestions();
-  let timerInterval = setInterval(function () {
+  var timerInterval = setInterval(function () {
     count--;
     countEl.textContent = count;
     if (count === 0) {
@@ -68,10 +68,9 @@ function startQuestions() {
 
 containerEl.addEventListener("click", function (event) {
   event.preventDefault();
+  i = 0;
   if (event.target.matches("button")) {
-    for (let i = 0; i < questions.length; i++) {
-      i++;
-    }
+    i++;
   }
 });
 
