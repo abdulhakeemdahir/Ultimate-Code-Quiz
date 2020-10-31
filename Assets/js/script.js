@@ -70,7 +70,7 @@ var containerEl = document.querySelector("#container");
 var startButtonEl = document.querySelector("#btn-start");
 var countEl = document.querySelector("#count");
 var score = 0;
-var count = 5;
+var count = 75;
 // var timer = 1000;
 var i = 0;
 
