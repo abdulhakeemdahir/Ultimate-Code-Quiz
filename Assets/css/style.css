@@ -34,9 +34,21 @@ h1 {
   cursor: pointer;
 }
 
+#container{
+    display: flex;
+}
+
 button {
   margin-top: 5px;
   margin-bottom: 5px;
   cursor: pointer;
   padding: 10px;
+  background-color: #fafafa;
+  border: solid 1px #ddd;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: azure;
+  border: solid 1px rgb(0, 212, 212);
 }
