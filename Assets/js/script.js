@@ -1,8 +1,13 @@
 // Need to set up all of my variables
 let questions = [
   {
-    question: "Question number 1",
-    choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
+    question: "What is it called when a click event goes up the DOM tree?",
+    choices: [
+      "Event Trickling",
+      "Event Targeting",
+      "Event Bubbling",
+      "Event Listening",
+    ],
     answer: 1,
   },
   {
