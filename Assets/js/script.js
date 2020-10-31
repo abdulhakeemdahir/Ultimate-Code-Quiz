@@ -8,12 +8,12 @@ let questions = [
       "Event Bubbling",
       "Event Listening",
     ],
-    answer: 1,
+    answer: "Event Bubbling",
   },
   {
     question: "How do you add a new Element via Javascript?",
-    choices: ["createDiv", "createClass", "createElement", "createTag"],
-    answer: 1,
+    choices: ["createDiv", "createElement", "createClass", "createTag"],
+    answer: "createElement",
   },
   {
     question: "What does HTML mean?",
@@ -23,12 +23,12 @@ let questions = [
       "Highly Ternary Mockup Language",
       "Howdy There Markup Language",
     ],
-    answer: 1,
+    answer: "Hyper Text Markup Language",
   },
   {
     question: "What is a Boolean?",
-    choices: ["A Number", "A String", "A True or False", "A Not A Number"],
-    answer: 1,
+    choices: ["A True or False", "A Number", "A String", "A Not A Number"],
+    answer: "A True or False",
   },
   {
     question: "What is jQuery?",
@@ -38,17 +38,17 @@ let questions = [
       "A CSS Library",
       "An HTML framework",
     ],
-    answer: 1,
+    answer: "A JS framework",
   },
   {
     question: "How do you use Bootstrap?",
     choices: [
       "As HTML Tags",
       "As JS replacement",
-      "As Classes",
       "You don't use Bootstrap!",
+      "As Classes",
     ],
-    answer: 1,
+    answer: "As Classes",
   },
   {
     question: "What is Global Scope?",
@@ -58,18 +58,20 @@ let questions = [
       "Something to see something far with",
       "I have no clue!",
     ],
-    answer: 1,
+    answer: "Where your variables can be accessed anywhere",
   },
   {
-    question: "What is VS Code",
+    question: "What is VS Code?",
     choices: ["A website", "An IDE", "A Game", "A Programming Langauge"],
-    answer: 1,
+    answer: "An IDE",
   },
 ];
 var containerEl = document.querySelector("#container");
 var startButtonEl = document.querySelector("#btn-start");
 var countEl = document.querySelector("#count");
+var score = 0;
 var count = 75;
+// var timer = 1000;
 var i = 0;
 
 function createEl() {
@@ -96,11 +98,31 @@ function createEl() {
 // Need to create all of my functions and logic
 containerEl.addEventListener("click", function (event) {
   event.preventDefault();
+  //   console.log(event.target.textContent);
+  //   console.log(questions[i - 1].answer);
   if (event.target.matches("button")) {
+    var correctAnswer = rightAnswer(
+      event.target.textContent,
+      questions[i - 1].answer
+    );
+    console.log(score);
     startQuestions();
     i++;
   }
 });
+
+function rightAnswer(choice, choiceAnswer) {
+  if (choice === choiceAnswer) {
+    count = count + 5;
+    score++;
+    alert("You're right");
+    return true;
+  } else {
+    count = count - 5;
+    alert("you're wrong!");
+    return false;
+  }
+}
 
 function startTime() {
   i = 0;
