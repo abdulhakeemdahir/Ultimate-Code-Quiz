@@ -32,10 +32,42 @@ var countEl = document.querySelector("#count");
 var count = 75;
 var i = 0;
 
+function createEl() {
+  questionEl = document.createElement("h1");
+  containerEl.appendChild(questionEl);
+  containerEl.setAttribute(
+    "style",
+    "display:flex;flex-direction:column;text-align:center;margin:0px auto;justify-content:space-between;"
+  );
+
+  choiceEl1 = document.createElement("button");
+  containerEl.appendChild(choiceEl1);
+
+  choiceEl2 = document.createElement("button");
+  containerEl.appendChild(choiceEl2);
+
+  choiceEl3 = document.createElement("button");
+  containerEl.appendChild(choiceEl3);
+
+  choiceEl4 = document.createElement("button");
+  containerEl.appendChild(choiceEl4);
+}
+
 // Need to create all of my functions and logic
+containerEl.addEventListener("click", function (event) {
+  event.preventDefault();
+  if (event.target.matches("button")) {
+    startQuestions();
+    i++;
+  }
+});
+
 function startTime() {
+  i = 0;
   startButtonEl.setAttribute("style", "display:none;");
+  createEl();
   startQuestions();
+  i++;
   var timerInterval = setInterval(function () {
     count--;
     countEl.textContent = count;
@@ -46,38 +78,12 @@ function startTime() {
 }
 
 function startQuestions() {
-  questionEl = document.createElement("h1");
   questionEl.textContent = questions[i].question;
-  containerEl.appendChild(questionEl);
-  containerEl.setAttribute(
-    "style",
-    "display:flex;flex-direction:column;text-align:center;margin:0px auto;justify-content:space-between;"
-  );
-
-  choiceEl1 = document.createElement("button");
   choiceEl1.textContent = questions[i].choices[0];
-  containerEl.appendChild(choiceEl1);
-
-  choiceEl2 = document.createElement("button");
   choiceEl2.textContent = questions[i].choices[1];
-  containerEl.appendChild(choiceEl2);
-
-  choiceEl3 = document.createElement("button");
   choiceEl3.textContent = questions[i].choices[2];
-  containerEl.appendChild(choiceEl3);
-
-  choiceEl4 = document.createElement("button");
   choiceEl4.textContent = questions[i].choices[3];
-  containerEl.appendChild(choiceEl4);
 }
-
-containerEl.addEventListener("click", function (event) {
-  event.preventDefault();
-  i = 0;
-  if (event.target.matches("button")) {
-    i++;
-  }
-});
 
 // Need to execute my functions
 startButtonEl.addEventListener("click", startTime);
