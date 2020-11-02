@@ -1,4 +1,4 @@
-// Need to set up all of my variables
+// Need to set up my questions array
 let questions = [
   {
     question: "What is it called when a click event goes up the DOM tree?",
@@ -66,6 +66,8 @@ let questions = [
     answer: "An IDE",
   },
 ];
+
+// Setting up my variables
 var containerEl = document.querySelector("#container");
 var startButtonEl = document.querySelector("#btn-start");
 var countEl = document.querySelector("#count");
@@ -76,7 +78,7 @@ var i = 0;
 
 //Form and Score submission
 
-
+//Setting up my rendering function
 function createEl() {
   questionEl = document.createElement("h1");
   containerEl.appendChild(questionEl);
@@ -127,6 +129,7 @@ function rightAnswer(choice, choiceAnswer) {
   }
 }
 
+//Setting up my initalizer function
 function startTime() {
   i = 0;
   startButtonEl.setAttribute("style", "display:none;");
@@ -151,6 +154,7 @@ function startTime() {
   }, 1000);
 }
 
+//Function for looping through my questions
 function startQuestions() {
   questionEl.textContent = questions[i].question;
   choiceEl1.textContent = questions[i].choices[0];
