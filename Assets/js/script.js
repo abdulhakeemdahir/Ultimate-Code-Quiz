@@ -74,6 +74,9 @@ var count = 75;
 // var timer = 1000;
 var i = 0;
 
+//Form and Score submission
+
+
 function createEl() {
   questionEl = document.createElement("h1");
   containerEl.appendChild(questionEl);
@@ -158,3 +161,5 @@ function startQuestions() {
 
 // Need to execute my functions
 startButtonEl.addEventListener("click", startTime);
+
+
