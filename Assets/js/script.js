@@ -111,8 +111,8 @@ containerEl.addEventListener("click", function (event) {
       questions[i - 1].answer
     );
     console.log(score);
-    startQuestions();
     i++;
+    startQuestions();
   }
 });
 
@@ -136,7 +136,7 @@ function startTime() {
   createEl();
   startQuestions();
   i++;
-  console.log(questions[-1]);
+  //   console.log(questions[-1]);
   var timerInterval = setInterval(function () {
     count--;
     countEl.textContent = count;
