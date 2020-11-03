@@ -103,8 +103,8 @@ function createEl() {
 // Need to create all of my functions and logic
 containerEl.addEventListener("click", function (event) {
   event.preventDefault();
-  //   console.log(event.target.textContent);
-  //   console.log(questions[i - 1].answer);
+  // console.log(event.target.textContent);
+  // console.log(questions[i - 1].answer);
   if (event.target.matches("button")) {
     var correctAnswer = rightAnswer(
       event.target.textContent,
@@ -136,10 +136,11 @@ function startTime() {
   createEl();
   startQuestions();
   i++;
+  console.log(questions[-1]);
   var timerInterval = setInterval(function () {
     count--;
     countEl.textContent = count;
-    if (count === 0) {
+    if (count === 0 || questions[i] === undefined) {
       clearInterval(timerInterval);
       containerEl.setAttribute("style", "display:none;");
       scoreContainerEl = document.querySelector("#scorecontainer");
@@ -165,5 +166,3 @@ function startQuestions() {
 
 // Need to execute my functions
 startButtonEl.addEventListener("click", startTime);
-
-
