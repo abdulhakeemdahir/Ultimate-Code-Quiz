@@ -149,7 +149,7 @@ function startTime() {
         "display:flex;flex-direction:column;text-align:center;margin:0px auto;justify-content:space-between;"
       );
       scoreEl = document.createElement("h1");
-      scoreEl.textContent = "Here is your score " + score;
+      scoreEl.textContent = "Here is your score " + score * 10;
       scoreContainerEl.appendChild(scoreEl);
     }
   }, 1000);
