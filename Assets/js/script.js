@@ -85,6 +85,7 @@ var highScoreEl = document.querySelector("#highscore");
 highScoreEl.setAttribute("style", "display:none;");
 var initialsInput = document.querySelector("#input");
 var submitButton = document.querySelector("#submit");
+var restartButton = document.querySelector("#restart");
 var score = 0;
 var count = 75;
 // var timer = 1000;
@@ -195,3 +196,7 @@ function rightAnswer(choice, choiceAnswer) {
 
 // Need to execute my functions
 startButtonEl.addEventListener("click", startTime);
+// Play game again
+restartButton.addEventListener("click", function (event) {
+  window.location.reload();
+});

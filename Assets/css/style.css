@@ -53,7 +53,7 @@ button:hover {
   border: solid 1px rgb(0, 212, 212);
 }
 
-#submit,
+#submit, #restart,
 input {
   width: 100px;
   margin: 10px auto;
