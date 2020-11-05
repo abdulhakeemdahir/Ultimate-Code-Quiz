@@ -1,5 +1,6 @@
 // Setting up my variables
 var containerEl = document.querySelector("#container");
+containerEl.setAttribute("style", "display:none;");
 var startButtonEl = document.querySelector("#btn-start");
 var countEl = document.querySelector("#count");
 var highScoreEl = document.querySelector("#highscore");

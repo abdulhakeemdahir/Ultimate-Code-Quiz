@@ -1,3 +1,6 @@
+body {
+  background-color: eee;
+}
 main {
   width: 100%;
   margin: 0 auto;
@@ -36,6 +39,11 @@ h1 {
 
 #container {
   display: flex;
+  width: 60%;
+  padding: 10px;
+  box-shadow: 0 0 30px -5px hsla(0, 0%, 60.8%, 0.45);
+  border-radius: 10px;
+  background-color: white;
 }
 
 button {
@@ -53,8 +61,15 @@ button:hover {
   border: solid 1px rgb(0, 212, 212);
 }
 
-#submit, #restart,
+#submit,
+#restart,
 input {
   width: 100px;
   margin: 10px auto;
+}
+
+@media screen and (max-width: 768px) {
+  #container {
+    width: 80%;
+  }
 }
