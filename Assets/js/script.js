@@ -1,3 +1,19 @@
+// Setting up my variables
+var containerEl = document.querySelector("#container");
+var startButtonEl = document.querySelector("#btn-start");
+var countEl = document.querySelector("#count");
+var highScoreEl = document.querySelector("#highscore");
+highScoreEl.setAttribute("style", "display:none;");
+var initialsInput = document.querySelector("#input");
+var submitButton = document.querySelector("#submit");
+var restartButton = document.querySelector("#restart");
+var answerEl = document.createElement("button");
+var initialEl = document.createElement("h1");
+var scoreEl = document.createElement("h1");
+var score = 0;
+var count = 75;
+var i = 0;
+
 // Need to set up my questions array
 let questions = [
   {
@@ -77,21 +93,6 @@ let questions = [
   },
 ];
 
-// Setting up my variables
-var containerEl = document.querySelector("#container");
-var startButtonEl = document.querySelector("#btn-start");
-var countEl = document.querySelector("#count");
-var highScoreEl = document.querySelector("#highscore");
-highScoreEl.setAttribute("style", "display:none;");
-var initialsInput = document.querySelector("#input");
-var submitButton = document.querySelector("#submit");
-var restartButton = document.querySelector("#restart");
-answerEl = document.createElement("button");
-var score = 0;
-var count = 75;
-// var timer = 1000;
-var i = 0;
-
 // Need to create all of my functions and logic
 containerEl.addEventListener("click", function (event) {
   event.preventDefault();
@@ -121,10 +122,8 @@ submitButton.addEventListener("click", function (event) {
     localStorage.setItem("initials", initials);
     localStorage.setItem("score", score * 10);
   }
-  initialEl = document.createElement("h1");
   initialEl.textContent = localStorage.getItem("initials");
   highScoreEl.appendChild(initialEl);
-  scoreEl = document.createElement("h1");
   scoreEl.textContent = "Your score: " + score * 10;
   highScoreEl.appendChild(scoreEl);
 });
@@ -194,10 +193,7 @@ function rightAnswer(choice, choiceAnswer) {
     var delay = setInterval(function () {
       clearInterval(delay);
     }, 2000);
-  }
-  // alert("You're right");
-  // return true;
-  else {
+  } else {
     answerEl.textContent = "You're Wrong!";
     answerEl.setAttribute("style", "background-color:#ef9a9a;color:#272727;");
     containerEl.appendChild(answerEl);
@@ -205,8 +201,6 @@ function rightAnswer(choice, choiceAnswer) {
       clearInterval(delay);
     }, 2000);
     count = count - 10;
-    // alert("you're wrong!");
-    // return false;
   }
 }
 
