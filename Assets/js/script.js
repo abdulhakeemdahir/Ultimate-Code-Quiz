@@ -11,6 +11,16 @@ let questions = [
     answer: "Event Bubbling",
   },
   {
+    question: "What is it called when a click event goes up the DOM tree?",
+    choices: [
+      "Event Trickling",
+      "Event Targeting",
+      "Event Bubbling",
+      "Event Listening",
+    ],
+    answer: "Event Bubbling",
+  },
+  {
     question: "How do you add a new Element via Javascript?",
     choices: ["createDiv", "createElement", "createClass", "createTag"],
     answer: "createElement",
@@ -71,12 +81,68 @@ let questions = [
 var containerEl = document.querySelector("#container");
 var startButtonEl = document.querySelector("#btn-start");
 var countEl = document.querySelector("#count");
+var highScoreEl = document.querySelector("#highscore");
+highScoreEl.setAttribute("style", "display:none;");
 var score = 0;
 var count = 75;
 // var timer = 1000;
 var i = 0;
 
+// Need to create all of my functions and logic
+containerEl.addEventListener("click", function (event) {
+  event.preventDefault();
+  i;
+  console.log(event.target.textContent);
+  console.log(questions[i].answer);
+  if (event.target.matches("button")) {
+    var correctAnswer = rightAnswer(
+      event.target.textContent,
+      questions[i].answer
+    );
+  }
+  console.log(correctAnswer);
+  i++;
+  startQuestions();
+  console.log(correctAnswer);
+});
+
 //Form and Score submission
+
+//Setting up my initalizer function
+function startTime() {
+  i;
+  startButtonEl.setAttribute("style", "display:none;");
+  createEl();
+  startQuestions();
+  i++;
+  //   console.log(questions[-1]);
+  var timerInterval = setInterval(function () {
+    count--;
+    countEl.textContent = count;
+    if (count === 0 || questions[i] === undefined) {
+      clearInterval(timerInterval);
+      containerEl.setAttribute("style", "display:none;");
+      highScoreEl.setAttribute("style", "display:block;");
+      highScoreEl = document.querySelector("#highscore");
+      highScoreEl.setAttribute(
+        "style",
+        "display:flex;flex-direction:column;text-align:center;margin:0px auto;justify-content:space-between;"
+      );
+      scoreEl = document.createElement("h1");
+      scoreEl.textContent = "Your score: " + score * 10;
+      highScoreEl.appendChild(scoreEl);
+    }
+  }, 1000);
+}
+
+//Function for looping through my questions
+function startQuestions() {
+  questionEl.textContent = questions[i].question;
+  choiceEl1.textContent = questions[i].choices[0];
+  choiceEl2.textContent = questions[i].choices[1];
+  choiceEl3.textContent = questions[i].choices[2];
+  choiceEl4.textContent = questions[i].choices[3];
+}
 
 //Setting up my rendering function
 function createEl() {
@@ -100,22 +166,6 @@ function createEl() {
   containerEl.appendChild(choiceEl4);
 }
 
-// Need to create all of my functions and logic
-containerEl.addEventListener("click", function (event) {
-  event.preventDefault();
-  // console.log(event.target.textContent);
-  // console.log(questions[i - 1].answer);
-  if (event.target.matches("button")) {
-    var correctAnswer = rightAnswer(
-      event.target.textContent,
-      questions[i - 1].answer
-    );
-    console.log(score);
-    i++;
-    startQuestions();
-  }
-});
-
 function rightAnswer(choice, choiceAnswer) {
   if (choice === choiceAnswer) {
     count = count + 5;
@@ -127,41 +177,6 @@ function rightAnswer(choice, choiceAnswer) {
     alert("you're wrong!");
     return false;
   }
-}
-
-//Setting up my initalizer function
-function startTime() {
-  i = 0;
-  startButtonEl.setAttribute("style", "display:none;");
-  createEl();
-  startQuestions();
-  i++;
-  //   console.log(questions[-1]);
-  var timerInterval = setInterval(function () {
-    count--;
-    countEl.textContent = count;
-    if (count === 0 || questions[i] === undefined) {
-      clearInterval(timerInterval);
-      containerEl.setAttribute("style", "display:none;");
-      scoreContainerEl = document.querySelector("#scorecontainer");
-      scoreContainerEl.setAttribute(
-        "style",
-        "display:flex;flex-direction:column;text-align:center;margin:0px auto;justify-content:space-between;"
-      );
-      scoreEl = document.createElement("h1");
-      scoreEl.textContent = "Here is your score " + score * 10;
-      scoreContainerEl.appendChild(scoreEl);
-    }
-  }, 1000);
-}
-
-//Function for looping through my questions
-function startQuestions() {
-  questionEl.textContent = questions[i].question;
-  choiceEl1.textContent = questions[i].choices[0];
-  choiceEl2.textContent = questions[i].choices[1];
-  choiceEl3.textContent = questions[i].choices[2];
-  choiceEl4.textContent = questions[i].choices[3];
 }
 
 // Need to execute my functions

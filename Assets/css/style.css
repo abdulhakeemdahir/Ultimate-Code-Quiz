@@ -39,7 +39,7 @@ h1 {
 }
 
 button {
-  margin:5px auto;
+  margin: 5px auto;
   cursor: pointer;
   padding: 10px;
   background-color: #fafafa;
@@ -51,4 +51,10 @@ button {
 button:hover {
   background-color: azure;
   border: solid 1px rgb(0, 212, 212);
+}
+
+#submit,
+input {
+  width: 100px;
+  margin: 10px auto;
 }
