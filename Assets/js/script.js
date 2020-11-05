@@ -121,6 +121,9 @@ submitButton.addEventListener("click", function (event) {
     localStorage.setItem("initials", initials);
     localStorage.setItem("score", score * 10);
   }
+  initialEl = document.createElement("h1");
+  initialEl.textContent = localStorage.getItem("initials");
+  highScoreEl.appendChild(initialEl);
   scoreEl = document.createElement("h1");
   scoreEl.textContent = "Your score: " + score * 10;
   highScoreEl.appendChild(scoreEl);
