@@ -86,6 +86,7 @@ highScoreEl.setAttribute("style", "display:none;");
 var initialsInput = document.querySelector("#input");
 var submitButton = document.querySelector("#submit");
 var restartButton = document.querySelector("#restart");
+answerEl = document.createElement("button");
 var score = 0;
 var count = 75;
 // var timer = 1000;
@@ -187,12 +188,25 @@ function rightAnswer(choice, choiceAnswer) {
   if (choice === choiceAnswer) {
     count = count + 10;
     score++;
-    alert("You're right");
-    return true;
-  } else {
+    answerEl.textContent = "You're Right!";
+    answerEl.setAttribute("style", "background-color:#a5d6a7;color:#272727;");
+    containerEl.appendChild(answerEl);
+    var delay = setInterval(function () {
+      clearInterval(delay);
+    }, 2000);
+  }
+  // alert("You're right");
+  // return true;
+  else {
+    answerEl.textContent = "You're Wrong!";
+    answerEl.setAttribute("style", "background-color:#ef9a9a;color:#272727;");
+    containerEl.appendChild(answerEl);
+    var delay = setInterval(function () {
+      clearInterval(delay);
+    }, 2000);
     count = count - 10;
-    alert("you're wrong!");
-    return false;
+    // alert("you're wrong!");
+    // return false;
   }
 }
 
