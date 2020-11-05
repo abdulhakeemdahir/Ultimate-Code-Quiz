@@ -83,6 +83,8 @@ var startButtonEl = document.querySelector("#btn-start");
 var countEl = document.querySelector("#count");
 var highScoreEl = document.querySelector("#highscore");
 highScoreEl.setAttribute("style", "display:none;");
+var initialsInput = document.querySelector("#input");
+var submitButton = document.querySelector("#submit");
 var score = 0;
 var count = 75;
 // var timer = 1000;
@@ -107,6 +109,21 @@ containerEl.addEventListener("click", function (event) {
 });
 
 //Form and Score submission
+submitButton.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  var initials = document.querySelector("#initials").value;
+
+  if (initials === "") {
+    displayMessage("error", "Initials cannot be blank");
+  } else {
+    localStorage.setItem("initials", initials);
+    localStorage.setItem("score", score * 10);
+  }
+  scoreEl = document.createElement("h1");
+  scoreEl.textContent = "Your score: " + score * 10;
+  highScoreEl.appendChild(scoreEl);
+});
 
 //Setting up my initalizer function
 function startTime() {
@@ -128,9 +145,6 @@ function startTime() {
         "style",
         "display:flex;flex-direction:column;text-align:center;margin:0px auto;justify-content:space-between;"
       );
-      scoreEl = document.createElement("h1");
-      scoreEl.textContent = "Your score: " + score * 10;
-      highScoreEl.appendChild(scoreEl);
     }
   }, 1000);
 }
