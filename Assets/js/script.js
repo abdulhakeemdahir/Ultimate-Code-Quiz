@@ -114,7 +114,6 @@ submitButton.addEventListener("click", function (event) {
   event.preventDefault();
 
   var initials = document.querySelector("#initials").value;
-
   if (initials === "") {
     displayMessage("error", "Initials cannot be blank");
   } else {
@@ -186,12 +185,12 @@ function createEl() {
 
 function rightAnswer(choice, choiceAnswer) {
   if (choice === choiceAnswer) {
-    count = count + 5;
+    count = count + 10;
     score++;
     alert("You're right");
     return true;
   } else {
-    count = count - 5;
+    count = count - 10;
     alert("you're wrong!");
     return false;
   }
