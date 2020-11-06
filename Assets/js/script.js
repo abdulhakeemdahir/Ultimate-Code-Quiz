@@ -28,16 +28,6 @@ let questions = [
     answer: "Event Bubbling",
   },
   {
-    question: "What is it called when a click event goes up the DOM tree?",
-    choices: [
-      "Event Trickling",
-      "Event Targeting",
-      "Event Bubbling",
-      "Event Listening",
-    ],
-    answer: "Event Bubbling",
-  },
-  {
     question: "How do you add a new Element via Javascript?",
     choices: ["createDiv", "createElement", "createClass", "createTag"],
     answer: "createElement",
@@ -131,12 +121,9 @@ submitButton.addEventListener("click", function (event) {
 
 //Setting up my initalizer function
 function startTime() {
-  i;
   startButtonEl.setAttribute("style", "display:none;");
   createEl();
   startQuestions();
-  i++;
-  //   console.log(questions[-1]);
   var timerInterval = setInterval(function () {
     count--;
     countEl.textContent = count;
