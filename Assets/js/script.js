@@ -114,18 +114,22 @@ containerEl.addEventListener("click", function (event) {
 //Form and Score submission
 submitButton.addEventListener("click", function (event) {
   event.preventDefault();
+  // ---this here
+  var highScore = JSON.parse(localStorage.getItem("highscore"));
+  // ---
   var initials = document.querySelector("#initials").value;
-  highScore.push({
+  let scoreArray = {
     initials: initials,
     score: score,
-  });
+  };
+  highScore.push(scoreArray);
   console.log(highScore);
   if (initials === "") {
     displayMessage("error", "Initials cannot be blank");
   } else {
     localStorage.setItem("highscore", JSON.stringify(highScore));
   }
-  initialEl.textContent = initials;
+  initialEl.textContent = localStorage.getItem("initials");
   highScoreEl.appendChild(initialEl);
   scoreEl.textContent = "Your score: " + score * 10;
   highScoreEl.appendChild(scoreEl);
