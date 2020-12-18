@@ -129,7 +129,7 @@ submitButton.addEventListener("click", function (event) {
   } else {
     localStorage.setItem("highscore", JSON.stringify(highScore));
   }
-  initialEl.textContent = localStorage.getItem("initials");
+  initialEl.textContent = initials;
   highScoreEl.appendChild(initialEl);
   scoreEl.textContent = "Your score: " + score * 10;
   highScoreEl.appendChild(scoreEl);
