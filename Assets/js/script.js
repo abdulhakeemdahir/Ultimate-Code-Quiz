@@ -115,18 +115,17 @@ containerEl.addEventListener("click", function (event) {
 submitButton.addEventListener("click", function (event) {
   event.preventDefault();
   var initials = document.querySelector("#initials").value;
-  let scoreArray = {
+  highScore.push({
     initials: initials,
     score: score,
-  };
-  highScore.push(scoreArray);
+  });
   console.log(highScore);
   if (initials === "") {
     displayMessage("error", "Initials cannot be blank");
   } else {
     localStorage.setItem("highscore", JSON.stringify(highScore));
   }
-  initialEl.textContent = localStorage.getItem("initials");
+  initialEl.textContent = initials;
   highScoreEl.appendChild(initialEl);
   scoreEl.textContent = "Your score: " + score * 10;
   highScoreEl.appendChild(scoreEl);
