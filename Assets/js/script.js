@@ -1,3 +1,4 @@
+var timerInterval;
 // Setting up my variables
 var containerEl = document.querySelector("#container");
 containerEl.setAttribute("style", "display:none;");
@@ -14,6 +15,7 @@ var scoreEl = document.createElement("h1");
 var score = 0;
 var count = 75;
 var i = 0;
+let highScore = [];
 
 // Need to set up my questions array
 let questions = [
@@ -84,34 +86,45 @@ let questions = [
   },
 ];
 
+function endGame() {
+  clearInterval(timerInterval);
+  containerEl.setAttribute("style", "display:none;");
+  highScoreEl.setAttribute("style", "display:block;");
+  highScoreEl = document.querySelector("#highscore");
+  highScoreEl.setAttribute(
+    "style",
+    "display:flex;flex-direction:column;text-align:center;margin:0px auto;justify-content:space-between;"
+  );
+}
+
 // Need to create all of my functions and logic
 containerEl.addEventListener("click", function (event) {
   event.preventDefault();
-  i;
-  console.log(event.target.textContent);
-  console.log(questions[i].answer);
   if (event.target.matches("button")) {
     var correctAnswer = rightAnswer(
       event.target.textContent,
       questions[i].answer
     );
+    i++;
+    startQuestions();
   }
-  console.log(correctAnswer);
-  i++;
-  startQuestions();
-  console.log(correctAnswer);
 });
+// containerEl.addEventListener("click", );
 
 //Form and Score submission
 submitButton.addEventListener("click", function (event) {
   event.preventDefault();
-
   var initials = document.querySelector("#initials").value;
+  let scoreArray = {
+    initials: initials,
+    score: score,
+  };
+  highScore.push(scoreArray);
+  console.log(highScore);
   if (initials === "") {
     displayMessage("error", "Initials cannot be blank");
   } else {
-    localStorage.setItem("initials", initials);
-    localStorage.setItem("score", score * 10);
+    localStorage.setItem("highscore", JSON.stringify(highScore));
   }
   initialEl.textContent = localStorage.getItem("initials");
   highScoreEl.appendChild(initialEl);
@@ -124,24 +137,20 @@ function startTime() {
   startButtonEl.setAttribute("style", "display:none;");
   createEl();
   startQuestions();
-  var timerInterval = setInterval(function () {
+  timerInterval = setInterval(function () {
     count--;
     countEl.textContent = count;
     if (count === 0 || questions[i] === undefined) {
-      clearInterval(timerInterval);
-      containerEl.setAttribute("style", "display:none;");
-      highScoreEl.setAttribute("style", "display:block;");
-      highScoreEl = document.querySelector("#highscore");
-      highScoreEl.setAttribute(
-        "style",
-        "display:flex;flex-direction:column;text-align:center;margin:0px auto;justify-content:space-between;"
-      );
+      endGame();
     }
   }, 1000);
 }
 
 //Function for looping through my questions
 function startQuestions() {
+  if (i >= questions.length) {
+    return endGame();
+  }
   questionEl.textContent = questions[i].question;
   choiceEl1.textContent = questions[i].choices[0];
   choiceEl2.textContent = questions[i].choices[1];
